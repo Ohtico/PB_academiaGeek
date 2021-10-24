@@ -8,8 +8,7 @@ import { getAuth, onAuthStateChanged } from "@firebase/auth";
 import { Register } from "../components/register/Register";
 import { Logeo } from "../components/login/Logeo";
 import { LoginAuth } from "../action/ActionLogin";
-
-//import ChatRoom from '../container/ChatRoomLocal'
+import { Mostrar } from "../action/ActionCandidato";
 
 export default function AppRouter() {
   const dispatch = useDispatch();
@@ -22,6 +21,7 @@ export default function AppRouter() {
     onAuthStateChanged(auth, (user) => {
       if (user?.uid) {
         // dispatch(loginEmailPassword(user.uid, user.displayName));
+        dispatch(Mostrar(user.email));
         dispatch(LoginAuth());
         setIsLoggedIn(true);
       } else {

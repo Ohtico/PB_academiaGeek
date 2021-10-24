@@ -1,11 +1,56 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useForm } from "../../../hook/useForm";
+import { useDispatch, useSelector } from "react-redux";
+import { CandidatoNew, editCand } from "../../../action/ActionCandidato";
 
 export const Formulario = () => {
+  const [values, handleInputChange, reset, setValues] = useForm({
+    nombre: "",
+    apellido: "",
+    cedula: "",
+    fechaN: "",
+    correo: "",
+    usuario: "",
+  });
+  const { nombre, apellido, cedula, fechaN, correo, usuario } = values;
+  const dispatch = useDispatch();
+  const hanldeSubmit = async (e) => {
+    e.preventDefault();
+  };
+  const handleAdd = () => {
+    dispatch(CandidatoNew(values));
+    reset();
+    setEditarTk(false);
+    setTitel(titulo1);
+  };
+  const handleEdt = async () => {
+    dispatch(editCand(values));
+    reset();
+    setEditarTk(false);
+    setTitel(titulo1);
+  };
+  let titulo1 = "Registrar Candidato";
+  let titulo2 = "Editar Candidato";
+  const [titel, setTitel] = useState(titulo1);
+  const [editarTk, setEditarTk] = useState(false);
+  const EditCan = useSelector((store) => store.candidato.EditCan);
 
-  
+  useEffect(() => {
+    if (EditCan.length === undefined) {
+      setEditarTk(true);
+      setTitel(titulo2);
+      setValues(EditCan);
+    } else {
+      setEditarTk(false);
+      setTitel(titulo1);
+      setValues("");
+    }
+  }, [EditCan]);
+
   return (
     <>
-      <form className="container">
+      <h4 className="mt-4 d-flex justify-content-center">{titel}</h4>
+      <form className="container" onSubmit={hanldeSubmit}>
         <div className="input-group mb-3">
           <span className="input-group-text" id="basic-addon1">
             <i className="material-icons " id="car">
@@ -18,6 +63,9 @@ export const Formulario = () => {
             placeholder="Nombres"
             aria-label="Username"
             aria-describedby="basic-addon1"
+            name="nombre"
+            value={nombre}
+            onChange={handleInputChange}
           />
         </div>
         <div className="input-group mb-3">
@@ -32,6 +80,9 @@ export const Formulario = () => {
             placeholder="Apellidos"
             aria-label="Username"
             aria-describedby="basic-addon1"
+            name="apellido"
+            value={apellido}
+            onChange={handleInputChange}
           />
         </div>
         <div className="input-group mb-3">
@@ -41,6 +92,9 @@ export const Formulario = () => {
             placeholder="Cedula"
             aria-label="Username"
             aria-describedby="basic-addon1"
+            name="cedula"
+            value={cedula}
+            onChange={handleInputChange}
           />
           <span className="input-group-text" id="basic-addon1">
             <i className="material-icons " id="car">
@@ -60,6 +114,9 @@ export const Formulario = () => {
             placeholder="Fecha de Nacimiento"
             aria-label="Username"
             aria-describedby="basic-addon1"
+            name="fechaN"
+            value={fechaN}
+            onChange={handleInputChange}
           />
         </div>
         <div className="input-group mb-3">
@@ -69,6 +126,9 @@ export const Formulario = () => {
             placeholder="Correo Electronico"
             aria-label="Recipient's username"
             aria-describedby="basic-addon2"
+            name="correo"
+            value={correo}
+            onChange={handleInputChange}
           />
           <span className="input-group-text" id="basic-addon2">
             @ejemplo.com
@@ -81,12 +141,21 @@ export const Formulario = () => {
             className="form-control"
             placeholder="Usuario de GitHub"
             aria-label="Username"
+            name="usuario"
+            value={usuario}
+            onChange={handleInputChange}
           />
         </div>
-        <div class="d-grid gap-2">
-          <button class="btn btn-info" type="submit">
-            Registrar
-          </button>
+        <div className="d-grid gap-2">
+          {!editarTk ? (
+            <button className="btn btn-info" onClick={handleAdd} type="submit">
+              Registrar
+            </button>
+          ) : (
+            <button className="btn btn-info" type="submit" onClick={handleEdt} >
+              Editar
+            </button>
+          )}
         </div>
       </form>
     </>

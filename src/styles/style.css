@@ -29,3 +29,6 @@ body{
 .caja{
     background: linear-gradient(to right, #da4453, #89216b);
 }
+#car {
+    cursor: pointer;
+  }

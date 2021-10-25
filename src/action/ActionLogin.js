@@ -10,6 +10,7 @@ import {
 import { google, facebook, db } from "../config/FirebaseConfig";
 import { collection, addDoc, getDocs } from "firebase/firestore";
 import Swal from "sweetalert2";
+import Cookies from 'universal-cookie'
 
 export const loginEmailPassword = (email, password) => {
   return (dispatch) => {
@@ -31,7 +32,12 @@ export const loginGoogle = () => {
     signInWithPopup(auth, google)
       .then(({ user }) => {
         //   const { uid, displayName, photoURL, email } = user;
-        console.log(user);
+        // console.log(user.email);
+        const cookies = new Cookies();
+        cookies.set('idUsuario', `${user.uid}`, {path:'/'})
+        cookies.set('nombreUsuario', `${user.displayName}`, {path:'/'})
+        cookies.set('emailUsuario', `${user.email}`, {path:'/'})
+
         dispatch(loginSincrono(user));
       })
       .catch((e) => {
@@ -46,6 +52,10 @@ export const loginFacebook = () => {
     signInWithPopup(auth, facebook)
       .then(({ user }) => {
         // const { uid, displayName, photoURL, email } = user;
+        const cookies = new Cookies();
+        cookies.set('idUsuario', `${user.uid}`, {path:'/'})
+        cookies.set('nombreUsuario', `${user.displayName}`, {path:'/'})
+        cookies.set('emailUsuario', `${user.email}`, {path:'/'})
         dispatch(loginSincrono(user));
       })
       .catch((e) => {

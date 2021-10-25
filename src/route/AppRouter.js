@@ -31,13 +31,13 @@ export default function AppRouter() {
     });
   }, [dispatch, setChecking, setIsLoggedIn]);
 
-//   if (checking) {
-//     return (
-//       <div>
-//           espere
-//       </div>
-//     );
-//   }
+  if (checking) {
+    return (
+      <div className="container">
+          Espere..
+      </div>
+    );
+  }
 
   return (
     <Router>

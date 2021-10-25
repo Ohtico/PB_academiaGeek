@@ -36,66 +36,70 @@ export const Logeo = () => {
   };
   return (
     <>
-      <div id="login">
-        <Paper>
-          <Box
-            component="form"
-            onSubmit={handleSubmit}
-            sx={{
-              "& > :not(style)": { m: 1, width: "25ch" },
-            }}
-            noValidate
-            autoComplete="off"
-          >
-            <h1>Iniciar Sesión</h1>
-            <TextField
-              id="outlined-name"
-              name="email"
-              type="email"
-              value={email}
-              onChange={handleInputChange}
-              label="Email"
-            />
-            <TextField
-              id="outlined-uncontrolled"
-              type="password"
-              name="password"
-              value={password}
-              onChange={handleInputChange}
-              label="Contraseña"
-            />
-            <span id="regi">
-            No tienes Cuenta? &nbsp;
-            <Link id="textD" to="/registro">
-              Registrate{" "}
-            </Link>
-          </span>
-          <ButtonGroup
-            variant="text"
-            aria-label="text button group"
-            id="grupob"
-          >
-            <Button onClick={handleFacebook}>
+      <div className="container mt-5  text-white">
+        <div className="container p-5">
+          <form onSubmit={handleSubmit} className="row g-2 caja p-2">
+            <h3 className="d-flex justify-content-center ">Iniciar Sesión</h3>
+            <div className="col-md-6">
+              <label for="inputEmail4" className="form-label">
+                Email
+              </label>
+              <input
+                type="email"
+                className="form-control"
+                id="inputEmail4"
+                name="email"
+                value={email}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div className="col-md-6">
+              <label for="inputPassword4" className="form-label">
+                Contraseña
+              </label>
+              <input
+                type="password"
+                className="form-control"
+                id="inputPassword4"
+                name="password"
+                value={password}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div className="my-3 text-center">
+              <span>
+                No Tienes cuenta?{" "}
+                <Link
+                  id="textD"
+                  className="hover-underline-animation"
+                  to="/registro"
+                >
+                  {" "}
+                  <strong> Registrate</strong>
+                </Link>{" "}
+              </span>
+            </div>
+            <div className="d-flex justify-content-center my-3 ">
+              <button onClick={handleFacebook} className="btn btn-outlined-info text-white m-2 ">
               <img
                 src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
                 alt="facebook"
                 width="32"
-              />
-              Facebook
-            </Button>
-            <Button type="submit">Iniciar sesión</Button>
-            <Button onClick={loginGooglee}>
+              />Facebook
+              </button>
+              <button type="submit" className="btn btn-info m-2 ">
+                Iniciar Sesión
+              </button>
+              <button onClick={loginGooglee} className="btn btn-outlined-danger text-white m-2">
               <img
                 src="https://rotulosmatesanz.com/wp-content/uploads/2017/09/2000px-Google_G_Logo.svg_.png"
                 alt="facebook"
                 width="32"
-              />
-              Google
-            </Button>
-          </ButtonGroup>
-          </Box>
-          
-        </Paper>
+              />Google
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </>
   );

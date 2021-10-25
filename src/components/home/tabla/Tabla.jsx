@@ -81,7 +81,6 @@ export const Tabla = () => {
       rest.name.toLowerCase().includes(busqueda.toLowerCase())
     );
     setReposit(final);
-    // dispatch(setProduct(final));
   };
   return (
     <>

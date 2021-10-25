@@ -7,8 +7,8 @@ export const DashboardRouter = () => {
   return (
     <div>
       <Switch>
-        <Route exact path="/home" component={Casa} />
-        <Redirect to="/home" />
+        <Route exact path="/" component={Casa} />
+        <Redirect to="/" />
       </Switch>
     </div>
   );

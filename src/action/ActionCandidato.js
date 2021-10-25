@@ -26,7 +26,7 @@ export const CandidatoNew = (candidato) => {
     Swal.fire({
       position: "bottom-end",
       icon: "success",
-      title: `Se El Candidato`,
+      title: `Se agrego un nuvo candidato`,
       showConfirmButton: false,
       timer: 1500,
     });
@@ -66,6 +66,7 @@ export const Mostrar = (gmail) => {
     const candidatoDb = await CargarCandidato(gmail);
     dispatch(setCandidato(candidatoDb));
     dispatch(activeCandidato(candidatoDb));
+    // dispatch(watchCandidato(candidatoDb[1]));
   };
 };
 export const setCandidato = (candidatoDb) => ({
@@ -79,10 +80,10 @@ export const activeCandidato = (candidatoDb) => {
     payload: candidatoDb,
   };
 };
-export const watchCandidato = (candidatoDb) => {
+export const watchCandidato = (candidatoVer) => {
   return {
     type: types.candidatoWatch,
-    payload: candidatoDb,
+    payload: candidatoVer,
   };
 };
 export const editCand = (candidato) => {

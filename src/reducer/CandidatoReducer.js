@@ -10,6 +10,14 @@ const initialState = {
     correo: "",
     usuario: "",
   },
+  WatchCan: {
+    nombre: "",
+    apellido: "",
+    cedula: "",
+    fechaN: "",
+    correo: "",
+    usuario: "",
+  },
 };
 
 export const CandidatoReducer = (state = initialState, action) => {
@@ -33,6 +41,11 @@ export const CandidatoReducer = (state = initialState, action) => {
       return {
         ...state,
         EditCan: action.payload,
+      };
+    case types.candidatoWatch:
+      return {
+        ...state,
+        WatchCan: action.payload,
       };
     default:
       return state;

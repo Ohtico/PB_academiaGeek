@@ -6,5 +6,6 @@ export const types = {
     candidatoLoad: "candidatoLoad",
     candidatoDelete: "candidatoDelete",
     candidatoActive: "candidatoActive",
+    candidatoWatch: "candidatoWatch",
   };
   

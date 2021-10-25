@@ -1,5 +1,6 @@
 import React from "react";
 import { Formulario } from "./formulario/Formulario";
+import { Datos } from "./info/Datos";
 import { Tabla } from "./tabla/Tabla";
 
 export const Casa = () => {

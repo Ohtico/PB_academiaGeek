@@ -11,3 +11,7 @@
 
 ### Tocando la opción de Ver, podrás mirar toda la información de tu candidato seleccionado
 ![Image text](https://res.cloudinary.com/ohtico/image/upload/v1635267112/aca_obtendras_c0aczs.png)
+
+## Si deseas descargar el repositorio, debes correr la dependencia
+
+``` npm start ```

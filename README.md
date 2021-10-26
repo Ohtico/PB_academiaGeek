@@ -10,4 +10,4 @@
 ![Image text](https://res.cloudinary.com/ohtico/image/upload/v1635267112/candidatos_registrados_anliu5.png)
 
 ### Tocando la opción de Ver, podrás mirar toda la información de tu candidato seleccionado
-![Image text](https://res.cloudinary.com/ohtico/image/upload/v1635267112/candidatos_registrados_anliu5.png)
+![Image text](https://res.cloudinary.com/ohtico/image/upload/v1635267112/aca_obtendras_c0aczs.png)

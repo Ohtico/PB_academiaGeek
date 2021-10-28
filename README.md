@@ -14,4 +14,4 @@
 
 ## Si deseas descargar el repositorio, debes correr la dependencia
 
-``` npm start ```
+``` npm install ```
